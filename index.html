@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Xiaomi Pad 6 TWRP Flashing Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://media1.giphy.com/media/1154CgmtPPa4lq/giphy.gif?cid=6c09b9520qi8z0fxsy8816q0rvosp2y0wip6lmy91tvo9l8j&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      animation: textFlash 1s infinite alternate;
+    }
+
+    @keyframes textFlash {
+      0% {
+        color: red;
+      }
+
+      100% {
+        color: yellow;
+      }
+    }
+
+    h2,
+    h3 {
+      color: #fff;
+      font-size: 1.75rem;
+      margin-top: 20px;
+    }
+
+    ol,
+    ul {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    pre {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #fff;
+    }
+
+    a {
+      color: #1A73E8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Xiaomi Pad 6 TWRP Flashing Guide</h1>
+
+    <div class="section">
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>A Windows PC with <a href="https://developer.android.com/studio/releases/platform-tools" target="_blank">ADB and Fastboot</a> installed</li>
+        <li><a href="https://t.me/rmuxnet/176" target="_blank">Download TWRP for Pad 6</a></li>
+        <li>Stock boot image (from your device's official firmware page)</li>
+        <li>USB cable, OTG adapter, and a mouse (for initial navigation in TWRP)</li>
+        <li>Backup your data and ensure the tablet is charged to at least 60%</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Additional Notes</h2>
+      <ul>
+        <li><strong>TWRP is made by rmux.</strong></li>
+        <li><strong>Ofox n PBRP is WIP (after I fix my shit grades).</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>1. Booting TWRP via Fastboot</h2>
+      <ol>
+        <li>Power off your device and boot into Fastboot mode (usually by holding <strong>Volume Down</strong> + <strong>Power</strong>).</li>
+        <li>Connect your device to your PC via USB.</li>
+        <li>Open a command prompt and run:
+          <pre>fastboot boot twrp.img</pre>
+          This temporarily boots your device into TWRP recovery.
+        </li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>2. Installing TWRP Permanently</h2>
+      <ol>
+        <li>Boot into TWRP (if not already there).</li>
+        <li>Navigate to <strong>Advanced</strong> in TWRP.</li>
+        <li>Select <strong>Install Current TWRP</strong> and tap <strong>Install</strong> to confirm.</li>
+        <li>Reboot by selecting <strong>Reboot &gt; Reboot to Recovery</strong>. TWRP is now permanently installed on your device.
+        </li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>3. Flashing a Kernel Using TWRP</h2>
+      <ol>
+        <li>From the TWRP main menu, tap <strong>Install</strong>.</li>
+        <li>Browse and select your kernel ZIP file.</li>
+        <li>Swipe to confirm the flash and wait for the process to finish.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>4. Flashing a Custom or Stock ROM via USB Drive</h2>
+      <ol>
+        <li><strong>Prepare the USB Drive:</strong>
+          <ul>
+            <li>Copy your <code>rom.zip</code> file (custom or stock) onto the USB drive.</li>
+            <li>Connect the USB drive to your device using an OTG cable.</li>
+          </ul>
+        </li>
+        <li><strong>Format Data Partition:</strong>
+          <ul>
+            <li>In TWRP, go to <strong>Wipe</strong>.</li>
+            <li>Select <strong>Format Data</strong> and type <code>yes</code> to confirm the wipe for a clean installation environment.</li>
+          </ul>
+        </li>
+        <li><strong>Install the ROM:</strong>
+          <ul>
+            <li>Return to the TWRP main menu and tap <strong>Install</strong>.</li>
+            <li>Browse to your USB drive, select the <code>rom.zip</code> file, and swipe to confirm the installation.</li>
+            <li>Wait until the flashing process completes.</li>
+          </ul>
+        </li>
+        <li><strong>Reboot:</strong>
+          <ul>
+            <li>Once flashing is complete, select <strong>Reboot</strong> to restart your device normally.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <footer>
+      Guide by: rmux | AFK<br><br>
+      <div class="donation-section">
+        <p>For donation and more info, visit: <a href="http://rmux.zya.me" target="_blank">rmux.zya.me</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+  </html>
